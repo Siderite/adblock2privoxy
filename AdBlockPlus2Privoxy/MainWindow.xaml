@@ -1,0 +1,34 @@
+﻿<Window x:Class="AdBlockPlus2Privoxy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox IsReadOnly="True" Text="{Binding AbpFilePath}"/>
+            <Button Content="Browse" Click="Browse_Click" Grid.Column="1" ToolTip="Select an AdblockPlus rule file"/>
+        </Grid>
+        <TextBox Grid.Row="1"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap"
+                 Text="{Binding ActionsText}"
+                 ToolTip="Privoxy user actions. Copy this into your user.action file and restart Privoxy."
+                 />
+        <TextBox Grid.Row="2"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap"
+                 Text="{Binding FiltersText}"
+                 ToolTip="Privoxy user filters. Copy this into your user.filter file and restart Privoxy."
+                 />
+    </Grid>
+</Window>
